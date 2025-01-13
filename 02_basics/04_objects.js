@@ -63,10 +63,10 @@ const arr= [
     }
 ]
 
-console.log(arr[0].name) //output --> Areesha
-console.log(Object.keys(tinderUSer))
-console.log(Object.values(tinderUSer))
-console.log(Object.entries(tinderUSer))  /* output --> [
+// console.log(arr[0].name) //output --> Areesha
+// console.log(Object.keys(tinderUSer))
+// console.log(Object.values(tinderUSer))
+/*console.log(Object.entries(tinderUSer))  /* output --> [
     [ 'name', 'areesha' ],
     [ 'age', 20 ],
     [ 'email', 'arisha@gmail.com' ],
@@ -84,3 +84,29 @@ console.log(Object.entries(tinderUSer))  /* output --> [
 //here the keys are nw in array so we can apply loops and other array functions
 
 //TRY OTHER METHODS FROM CONSOLE LOG
+
+
+//VERY IMPORTANT AND USED TOPIC
+//------DESTRUCTURING OF OBJECTS----------
+//used in react
+
+const course= {
+    courseName: "Javascript",
+    platform: "Youtube",
+    channelName: "Chai aur code"
+}
+console.log(course.channelName);
+
+//another way:
+
+const {platform}=course;
+console.log(platform) 
+
+
+//-----------APIs---------------
+
+/*
+go to "https://randomuser.me/api/" from there copy and then paste it in any json formatter
+beautify or modify it , then see it's tree view
+from there you will see what are arrays and what are objects
+*/
