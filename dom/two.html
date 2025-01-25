@@ -32,6 +32,27 @@
     parent.children[1].style.color="orange"
     parent.children[3].style.color="orange"
 
-    console.log(parent.firstElementChild)
+    // console.log(parent.firstElementChild)
+    // console.log(parent.lastElementChild)
+
+    const day1= document.querySelector('.Day')
+    // console.log(day1)
+    // console.log(day1.parentElement)
+    // console.log(day1.nextSibling)
+    // console.log(day1.nextElementSibling)
+
+    // const days = document.querySelectorAll('.Day')
+    // console.log(days);
+
+    // for (let i = 0; i < days.length; i++) {
+    //     console.log(days[i]);
+        
+    // }
+
+    console.log("NODES", parent.childNodes); //NodeList(9) [text, div.Day, text, div.Day, text, div.Day, text, div.Day, text]
+    //here it shows 9 although there is only 4 this is because each line break and comments are counted </div> is taken as node
+
+
+
 </script>
 </html>
