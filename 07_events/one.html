@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""  
+                onclick="alert('owl')"></li> <!--not a good approach-->
+
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    //Another approach
+
+    // const owl= document.getElementById('owl').onclick=function () {
+    //     alert ('oowl')
+
+    // }
+
+    // //NEW APPROACH
+
+    // document.getElementById('owl').addEventListener('click', function(){
+    //     alert('owl clicked again')
+    // })
+
+    //attachEvent ANOTHER APPROACH (used in earlier times) //just for knowledge
+    //jQuery- onEvent listener ANOTHER APPROACH  //just for knowledge
+
+        // TO PRACTICE
+    //type , timestamp, defaultPrevented,
+    //target, toElement, srcElement, currentTarget
+    //clientX, clientY, screenX, screenY
+    // altKey, ctrlKey, shiftKey, keyCode
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log(e) // see these events in console and practice
+    // }, false) // gives same even is true
+
+    //  EVENT PROPAGATION
+
+        // BUBBLING, FROM BOTTOM TO UP :
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked in the ul") // see these events in console and practice
+    // })
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("Owl clicked") // see these events in console and practice
+    // }) // first --> owl clicked, then--> owl clicked in the ul
+
+ 
+    // CAPTURING:
+
+    //     document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked in the ul") // see these events in console and practice
+    // }, true)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("Owl clicked") // see these events in console and practice
+    // }, true) // first --> clicked in the ul, then--> owl clicked
+
+    // STOP PROPOGATION
+
+    //     document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked in the ul") // see these events in console and practice
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("Owl clicked") 
+    //     e.stopPropagation();  // only 'owl clicked' shows
+    // }, false) 
+
+    // document.getElementById('google').addEventListener('click', function(e) {
+    //     e.preventDefault()
+    //     console.log("google clicked");
+    //     e.stopPropagation();
+    // }, false)
+
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.parentNode); // to get li
+        // first method:
+
+       // let remove = e.target.parentNode.remove() // but if clicked on bullet point whole page gets removed
+
+        // for this:
+
+        if(e.target.tagName === "IMG") {
+            let remove = e.target.parentNode.remove()  //solved
+        }
+
+        //another method:
+
+        // let remove= e.target.parentNode;
+        // remove.parentNode.removeChild(remove)
+
+
+        
+    }, false)
+
+</script>
+</html>
