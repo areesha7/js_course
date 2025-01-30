@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: black;
+            color: white;
+        }
+        #stop{
+            background-color: grey;
+            height: 50px;
+            width: 80px;
+            font-size: 28px;
+            color: maroon;
+        }
+        #start{
+            background-color: grey;
+            height: 50px;
+            width: 80px;
+            font-size: 28px;
+            color: maroon;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tea and code</h1>
+    <button id="start">Start</button>
+    <br>
+    <br>
+    <button id="stop">Stop</button>
+    <div id="output"></div>
+    
+</body>
+<script>
+
+    let intId = null
+
+    //TO PRINT ON CONSOLE
+
+    // const start = function() {
+    //         if (!intId) { // Prevent multiple intervals from being set
+    //             intId = setInterval(function() {
+    //                 console.log("Areesha", new Date().toLocaleTimeString());
+    //             }, 1000);
+    //         }
+    //     };
+
+    //     const stop = function() {
+    //         clearInterval(intId); // Stops the interval
+    //         intId = null; // Reset interval ID
+    //     };
+
+    //     // Attach event listeners
+    //     document.querySelector("#start").addEventListener('click', start);
+    //     document.querySelector("#stop").addEventListener('click', stop);
+
+
+    // TO PRINT ON WEBPAGE:
+
+    const start = function() {
+            if (!intId) { // Prevent multiple intervals from being set
+                intId = setInterval(function() {
+                    const timestamp = new Date().toLocaleTimeString();
+                    document.querySelector("#output").innerHTML = `Areesha - ${timestamp}`;
+                }, 1000);
+            }
+        };
+
+        const stop = function() {
+            if (intId) {
+                clearInterval(intId); // Stop the interval
+                intId = null;
+                document.querySelector("#output").innerHTML = "Stopped"; // Show message when stopped
+            }
+        };
+
+        // Attach event listeners
+        document.querySelector("#start").addEventListener('click', start);
+        document.querySelector("#stop").addEventListener('click', stop);
+
+</script>
+</html>

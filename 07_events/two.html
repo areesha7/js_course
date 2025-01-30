@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: black;
+            color: white;
+        }
+        #stop{
+            background-color: grey;
+            height: 50px;
+            width: 80px;
+            font-size: 28px;
+            color: maroon;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tea and code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+
+    //Happens once
+    setTimeout(function(){
+        console.log("Areesha")
+    }, 2000); //not only a function but also calls api
+
+
+    //keeps on happening:
+
+    // setInterval(function(){
+    //     console.log("Areesha")
+    // }, 2000)
+
+    const stop= document.getElementById('stop');
+    stop.addEventListener('click', function(){
+        alert('Stopped')
+    })
+
+    const change = function () {document.querySelector('h1').
+    innerHTML=" best series"
+}
+
+const changeMe= setTimeout(change, 2000)
+
+document.querySelector('#stop').addEventListener('click', function(){
+    clearTimeout(changeMe) // can be done before 2000
+})
+
+</script>
+</html>
