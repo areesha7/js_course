@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <style>
+        *{
+            background-color: grey;
+        }
+        #table td, #table tr{
+            border-color: black;
+            border: 2px solid black ;
+
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <table id="table">
+            <tr>
+            <td id="photo">Profile pic</td>
+        </tr>
+            <br>
+            <tr></tr>
+            <td id="followers">No of follwers :</td>
+        </tr>
+
+        </table>
+    </div>
+</body>
+<script>
+    const reqURL= 'https://api.github.com/users/areesha7'
+    const photo = document.getElementById('photo');
+    const followers = document.getElementById('followers');
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', reqURL)
+    xhr.onreadystatechange = function(){
+    const data = JSON.parse(this.responseText);
+    console.log(data)
+    photo.innerHTML=(`Avatar_url: ${data.avatar_url}`)
+    followers.innerHTML=(`Followers: ${data.followers}`)
+}
+    xhr.send()
+</script>
+</html>
