@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(49, 42, 42);">
+    
+</body>
+<script>
+    const reqURL = 'https://api.github.com/users/areesha7'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', reqURL)
+    // console.log(xhr.readyState) // just showed once and not continously
+
+    //to continously track it:
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState) //output --> 2  3  4
+        // if(xhr.readyState === 4){
+
+        //     //console.log(this.responseText); // the whole api is consoled
+
+        //     console.log(data.followers) //undefined WHY:
+
+            //it is because the type of data is string, WHY String? :
+            //Data obtained from url is a string
+            // FOR THAT:
+            
+            if(xhr.readyState === 4){
+                const data = JSON.parse(this.responseText)
+                console.log(data.login)
+
+        }
+    }
+
+    //now we need to call open
+
+    xhr.send()
+</script>
+</html>
